@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kristinluedecke.de/sitemap-index.xml

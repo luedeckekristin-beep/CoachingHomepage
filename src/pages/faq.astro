@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+
+const title = 'FAQ — Häufige Fragen zum Coaching | Kristin Lüdecke';
+const description = 'Antworten auf die häufigsten Fragen zum Coaching mit Kristin Lüdecke: Themen, Ablauf, Ort, Sprachen, Vertraulichkeit.';
+
+const faqs = [
+  {
+    q: 'Was ist der Unterschied zwischen dem Kennenlerngespräch und einer Coaching-Session?',
+    a: 'Das Kennenlerngespräch dauert 15 bis 30 Minuten und ist unser erster Kontakt. Wir lernen uns kennen, du erzählst mir, was dich beschäftigt, und wir schauen gemeinsam, welches Format am besten zu dir passt. Eine Coaching-Session ist eine vollwertige Arbeitsstunde, in der wir gezielt an deinem Anliegen arbeiten.',
+  },
+  {
+    q: 'Ist Coaching das Richtige für mich?',
+    a: 'Coaching ist dann sinnvoll, wenn du ein konkretes Anliegen hast: eine Entscheidung, die du treffen möchtest, eine Veränderung, die du gestalten willst, oder eine Situation, in der du mehr Klarheit suchst. Du musst noch nicht genau wissen, was du willst. Es reicht, zu spüren, dass etwas in Bewegung ist. Coaching ist kein Ersatz für Therapie. Wenn du gerade in einer akuten psychischen Belastung steckst, empfehle ich dir, therapeutische Unterstützung zu suchen.',
+  },
+  {
+    q: 'Was sind mögliche Themen?',
+    a: 'Alles, was dich gerade beschäftigt, beruflich oder privat. Typische Themen sind: eine neue Rolle oder ein Karriereschritt, eine anstehende Entscheidung, der Wunsch nach Neuorientierung, ein Umbruch im Leben, der Einstieg in etwas Eigenes oder das Gefühl, mehr mit sich selbst im Einklang leben zu wollen.',
+  },
+  {
+    q: 'Wie läuft ein Coaching ab?',
+    a: 'Wir starten mit einem Kennenlerngespräch, in dem wir uns kennenlernen. Du erzählst, was dich beschäftigt, ich höre zu. Wenn wir beide das Gefühl haben, dass es passt, vereinbaren wir weitere Sessions. Jede Session dauert etwa eine Stunde. Wie viele Sessions sinnvoll sind, besprechen wir gemeinsam.',
+  },
+  {
+    q: 'Wo findet das Coaching statt?',
+    a: 'Vor Ort in München, virtuell oder in deinem Team, wenn es um einen Gruppen- oder Teamprozess geht. In jedem Fall immer persönlich.',
+  },
+  {
+    q: 'Wie vertraulich ist das Coaching?',
+    a: 'Alles, was du im Coaching teilst, bleibt zwischen uns. Ich behandle alle Inhalte unserer Gespräche streng vertraulich. Das ist für mich nicht nur eine professionelle Selbstverständlichkeit, es ist die Grundlage, auf der echter Coaching-Raum entsteht.',
+  },
+  {
+    q: 'In welcher Sprache findet das Coaching statt?',
+    a: 'Auf Deutsch oder Englisch, du entscheidest, was sich für dich richtiger anfühlt.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- HERO -->
+  <section class="container-wide pt-16 md:pt-24 pb-12">
+    <div class="max-w-3xl">
+      <p class="eyebrow mb-6">FAQ</p>
+      <h1 class="mb-6">Häufige Fragen</h1>
+    </div>
+  </section>
+
+  <!-- FAQ-ACCORDION -->
+  <section class="container-prose py-12">
+    <div class="divide-y divide-primary/15">
+      {faqs.map((faq) => (
+        <div class="faq-item py-8">
+          <button
+            type="button"
+            class="faq-toggle w-full flex items-start justify-between text-left gap-6"
+            aria-expanded="false"
+          >
+            <span class="font-sans font-semibold text-lg text-primary">{faq.q}</span>
+            <span class="faq-icon text-primary text-2xl leading-none mt-1 flex-shrink-0 transition-transform duration-200">+</span>
+          </button>
+          <div class="faq-answer hidden mt-5 pr-10">
+            <p class="text-ink-soft leading-relaxed m-0">{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA-Block am Ende -->
+  <CTABlock
+    headline="Noch Fragen?"
+    text="Ich beantworte sie gerne persönlich."
+    buttonLabel="Schreib mir"
+    buttonHref="/kontakt/"
+  />
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.faq-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+
+      const answer = button.nextElementSibling as HTMLElement | null;
+      const icon = button.querySelector<HTMLElement>('.faq-icon');
+
+      if (answer) answer.classList.toggle('hidden');
+      if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(45deg)';
+    });
+  });
+</script>

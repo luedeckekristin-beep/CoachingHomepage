@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'Über mich — Kristin Lüdecke, Coach in München';
+const description = 'Ich bin Kristin Lüdecke. Lösungsorientierte Coach in München. Ich begleite Menschen in beruflichen und privaten Veränderungen, aus eigener Erfahrung und mit fundierter Ausbildung.';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- HERO + WAS ZEICHNET MICH AUS: Text links, Portrait rechts läuft durch -->
+  <SplitSection imagePosition="right" imageSrc="/portrait.jpg" imageAlt="Kristin Lüdecke" bgColor="bg-bg">
+    <p class="eyebrow mb-4">Über mich</p>
+    <h1 class="mb-3">Ich bin <em>Kristin</em>.</h1>
+    <p class="text-lg text-ink-soft mb-8">Coach. Wegbegleiterin. Mensch.</p>
+    <h2 class="mb-4">Was zeichnet mich als Coach aus?</h2>
+    <p class="text-lg leading-relaxed mb-5">
+      Ich bin ausgebildete lösungsorientierte Coach und begleite Menschen in beruflichen und privaten Veränderungen. Mit echter Präsenz, strukturiertem Denken und dem Glauben daran, dass du bereits <strong>alles in dir trägst</strong>, was du für deinen nächsten Schritt brauchst.
+    </p>
+    <p class="text-lg leading-relaxed">
+      Ich kenne beide Seiten: die Welt der Unternehmen, der Entscheidungen unter Druck, des beruflichen Umbruchs — und die Erfahrung, selbst mehrfach neu anzufangen, der eigenen Intuition zu folgen und den <strong>eigenen Weg bewusst zu gestalten</strong>.
+    </p>
+  </SplitSection>
+
+  <!-- MEIN WEG: Eyebrow 'Mein Weg', h2 'Wo ich herkomme', breiter -->
+  <section class="container-wide pt-16 pb-8">
+    <p class="eyebrow mb-3">Mein Weg</p>
+    <h2 class="mb-6">Wo ich herkomme</h2>
+    <div class="max-w-4xl space-y-5">
+      <p class="text-lg leading-relaxed">
+        Ich habe über sechs Jahre in der Geschäftswelt gearbeitet — Consulting, Strategie, Enterprise-Software, Transformation. Zuletzt in einem Software-Unternehmen. Und irgendwann ein klares Gefühl: Das ist es nicht mehr. Ich bin meiner Intuition gefolgt und dem Wunsch, meinen eigenen Weg bewusst zu gestalten.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Ein bewusster Teil dieser Veränderung war eine achtmonatige Weltreise durch fünfzehn Länder. Nicht als Flucht, sondern als Antwort auf die Frage, was wirklich zu mir gehört. Diese Reise hat mich bewusst verändert und mir mehr Klarheit gegeben — und den Wunsch geweckt, das weiterzugeben, was mir in dieser Zeit geholfen hat: Coaching.
+      </p>
+    </div>
+  </section>
+
+  <!-- WO ICH HEUTE BIN: Eyebrow 'Mein Hintergrund' + 4 Karten -->
+  <section class="container-wide pt-8 pb-20">
+    <p class="eyebrow mb-3">Mein Hintergrund</p>
+    <h2 class="mb-10">Wo ich heute bin</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card">
+        <h3 class="text-primary mb-3">Coaching-Ausbildung</h3>
+        <p class="text-ink-soft m-0">
+          Ich bin ausgebildete lösungsorientierte Coach. Die Ausbildung habe ich bei den
+          {' '}
+          <a href="https://www.solutionsurfers.de/ausbildung-icf-zertifikat/" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2">SolutionSurfers</a>
+          {' '}
+          absolviert (Abschluss Sommer 2026). Der lösungsorientierte Ansatz ist für mich keine Methode, die ich anwende — es ist eine Haltung, die ich lebe. Wir arbeiten an dem, was sein soll, nicht an dem, was nicht funktioniert.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-primary mb-3">Digitale Transformation</h3>
+        <p class="text-ink-soft m-0">
+          Mehrere Jahre meiner beruflichen Laufbahn habe ich im Unternehmenskontext daran gearbeitet, Organisationen durch Veränderung zu führen. Was mich dabei am meisten beschäftigt hat: nicht die Strategie, sondern die Menschen dahinter. Ich kenne die Herausforderungen der digitalen und KI-Transformation aus eigener Erfahrung und weiß, was es bedeutet, Menschen in Unsicherheit mitzunehmen und den eigenen Weg darin zu finden.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-primary mb-3">Balance &amp; Bloom</h3>
+        <p class="text-ink-soft m-0">
+          Zusammen mit meiner Co-Founderin Johanna habe ich
+          {' '}
+          <a href="https://www.instagram.com/balanceandbloom.de/" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2">Balance &amp; Bloom</a>
+          {' '}
+          gegründet — einen Ort, an dem ich meine Leidenschaften zusammenfließen lasse: Coaching und Yoga. Transformation entsteht nicht nur durch Erkenntnisse im Kopf, sondern auch durch den Körper. Durch unsere Angebote, darunter Retreats, geben wir Menschen einen Raum, um zur Ruhe zu kommen und ganzheitliche Erholung zu erleben.
+        </p>
+      </div>
+      <div class="card">
+        <h3 class="text-primary mb-3">Privat</h3>
+        <p class="text-ink-soft m-0">
+          Ich lebe in München und liebe es, in der Natur zu sein. Sport gibt mir Kraft und Energie und bringt mich mit meinem Körper in Kontakt. Ich verbringe gerne Zeit alleine, mit Freunden und meinem Partner und tanke dadurch auf. Ich bin neugierig auf Menschen, auf das Leben, auf Geschichten mit allen Facetten. Diese Neugier bringe ich auch in jedes Coaching-Gespräch mit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRÜCKE + KONTAKTFORMULAR -->
+  <section class="container-text py-20">
+    <p class="text-lg leading-relaxed mb-10">
+      Wenn du beim Lesen das Gefühl hattest, dass hier jemand spricht, der dich auf deinem Weg begleiten kann, dann freue ich mich, von dir zu hören.
+    </p>
+    <ContactForm />
+  </section>
+
+</BaseLayout>

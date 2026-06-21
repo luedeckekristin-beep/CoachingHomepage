@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: theme('colors.bg.DEFAULT');
+    color: theme('colors.ink.DEFAULT');
+    font-family: theme('fontFamily.sans');
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: theme('colors.bg.DEFAULT');
+  }
+
+  h1 {
+    font-family: theme('fontFamily.serif');
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+  }
+
+  h2, h3, h4 {
+    font-family: theme('fontFamily.sans');
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  h4 {
+    font-weight: 500;
+  }
+
+  p {
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+  }
+
+  a {
+    color: theme('colors.primary.DEFAULT');
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: theme('colors.primary.light');
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply max-w-4xl mx-auto px-8;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-8 md:px-10;
+  }
+
+  /* Text-Container: breit, linksbündig (Option B) */
+  .container-text {
+    @apply max-w-3xl mx-auto px-8 md:px-10;
+  }
+
+  /* Bild-Container: volle Breite (Option B) */
+  .image-full {
+    @apply w-full;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Bild-Container für Portrait: höher, Gesicht oben */
+  .image-portrait {
+    @apply w-full;
+    height: 600px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-widest text-ink-soft;
+    font-family: theme('fontFamily.sans');
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-ink-light no-underline rounded-md transition-all;
+    font-family: theme('fontFamily.sans');
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-dark text-ink-light;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center text-primary no-underline border-b border-primary pb-1 transition-colors;
+    font-family: theme('fontFamily.sans');
+    font-weight: 500;
+  }
+
+  .btn-secondary:hover {
+    @apply text-primary-light border-primary-light;
+  }
+
+  .card {
+    @apply bg-bg-card rounded-lg p-6 border border-primary/10;
+  }
+
+  .italic-accent {
+    font-style: italic;
+    font-family: theme('fontFamily.serif');
+  }
+
+  /* Serif-Akzent für Beispielfragen u. ä. */
+  .serif-quote {
+    font-family: theme('fontFamily.serif');
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    line-height: 1.4;
+    color: theme('colors.primary.DEFAULT');
+  }
+}

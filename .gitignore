@@ -1,0 +1,25 @@
+# Build outputs
+dist/
+.output/
+.astro/
+
+# Lokale Briefing-Dokumente
+claude_code_auftrag_*.md
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.production
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

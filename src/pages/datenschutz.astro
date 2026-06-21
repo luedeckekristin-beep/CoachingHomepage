@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Datenschutzerklärung — Kristin Lüdecke';
+const description = 'Datenschutzerklärung nach DSGVO.';
+---
+
+<BaseLayout title={title} description={description} noindex={true}>
+
+  <section class="container-prose pt-12 md:pt-20 pb-16">
+    <p class="eyebrow mb-6">Datenschutz</p>
+    <h1 class="mb-12">Datenschutzerklärung</h1>
+
+    <!-- ⚠️ ACHTUNG: Diese Seite ist ein PLATZHALTER. Vor Launch unbedingt
+         über einen Generator (eRecht24 oder datenschutz-generator.de)
+         eine vollständige Datenschutzerklärung erstellen und hier einfügen.
+         Siehe /02_texte/06_datenschutz_v1_0.md -->
+
+    <div class="space-y-8 text-lg leading-relaxed">
+      <div>
+        <h2 class="mb-3 text-primary">1. Verantwortlicher</h2>
+        <p class="m-0">
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
+          Kristin Lüdecke, [Adresse aus Impressum], luedeckekristin@gmail.com
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">2. Hosting</h2>
+        <p class="m-0">
+          Diese Website wird gehostet bei [Hosting-Anbieter — wird beim Launch ergänzt]. Beim Aufruf der Website werden technisch notwendige Daten (z. B. IP-Adresse, Browser, Zeitpunkt des Aufrufs) an den Hoster übertragen, um die Auslieferung der Seite zu ermöglichen.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">3. Server-Logfiles</h2>
+        <p class="m-0">
+          Beim Aufruf der Website werden in Server-Logfiles gespeichert: IP-Adresse, Datum und Uhrzeit des Aufrufs, aufgerufene Seite, verwendeter Browser und Betriebssystem, Referrer-URL. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Speicherung max. [Frist] zur Sicherheit und Fehleranalyse.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">4. Kontaktaufnahme</h2>
+        <p class="m-0">
+          Wenn du mir per E-Mail oder Telefon Kontaktanfragen schickst, werden deine Angaben zwecks Bearbeitung der Anfrage und für Rückfragen gespeichert. Diese Daten werden nicht ohne deine Einwilligung weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">5. Cookies</h2>
+        <p class="m-0">
+          Diese Website verwendet aktuell keine Cookies. Sollten in Zukunft Tools eingebunden werden, die Cookies setzen, wird ein Cookie-Banner eingeblendet, über den du der Verwendung zustimmen oder widersprechen kannst.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">6. Externe Dienste</h2>
+        <p class="m-0">
+          [Liste aller eingebundenen Drittanbieter — z. B. Google Fonts, falls genutzt; etc. Wird beim Launch über Generator ergänzt.]
+        </p>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">7. Deine Rechte</h2>
+        <p class="m-0 mb-3">Du hast das Recht auf:</p>
+        <ul class="list-none p-0 m-0 space-y-2">
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Auskunft (Art. 15 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Berichtigung (Art. 16 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Löschung (Art. 17 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Datenübertragbarkeit (Art. 20 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Widerspruch (Art. 21 DSGVO)</li>
+          <li class="pl-6 relative before:content-['·'] before:absolute before:left-0 before:text-primary before:text-2xl before:leading-none before:top-1">Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO) — in Bayern: Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="mb-3 text-primary">8. Aktualität</h2>
+        <p class="m-0">
+          Diese Datenschutzerklärung wird bei Änderungen an der Website oder Einführung neuer Tools aktualisiert.<br />
+          Stand: [Datum]
+        </p>
+      </div>
+    </div>
+
+    <!-- Sichtbarer Hinweis im Dev-Modus -->
+    <div class="mt-16 p-6 border-2 border-accent rounded-lg bg-bg-card">
+      <p class="text-sm text-ink-soft m-0">
+        ⚠️ <strong>Hinweis (intern):</strong> Diese Seite ist ein Platzhalter. Vor Launch über Generator (eRecht24 oder datenschutz-generator.de) finalisieren. Siehe <code>/02_texte/06_datenschutz_v1_0.md</code>.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

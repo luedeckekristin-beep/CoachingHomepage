@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'Mein Coaching — Lösungsorientiert, in München & Online';
+const description = 'Wie ich arbeite: Lösungsorientiertes Coaching für berufliche und private Veränderungen. 1:1, online oder in München. Lösungsorientiert, ganzheitlich, auf Augenhöhe.';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- HERO: Text links, bild-2 rechts -->
+  <SplitSection imagePosition="right" imageSrc="/bild-2.jpg" imageAlt="Wald mit Licht" bgColor="bg-bg">
+    <p class="eyebrow mb-4">Mein Coaching-Angebot</p>
+    <h1 class="mb-3">Wir arbeiten an dem, was <em>sein soll</em>.</h1>
+    <p class="text-lg text-ink-soft">Lösungsorientiert. Ganzheitlich. In deinem Tempo.</p>
+  </SplitSection>
+
+  <!-- FRAGEN: drei weiße Karten mit Eyebrow + Headline -->
+  <section class="container-wide py-16">
+    <p class="eyebrow mb-2">Deine Situation</p>
+    <h2 class="mb-8">Wo du gerade stehst</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du spürst, dass sich etwas verändern soll — weißt aber noch nicht genau, was?</p>
+      </div>
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du weißt, dass du etwas möchtest — aber wohin die Reise gehen soll, ist noch unklar?</p>
+      </div>
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du bist bereit für einen nächsten Schritt — und suchst den Mut oder die Klarheit, ihn zu gehen?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEIN ANSATZ: gleicher Hintergrund wie Fragen-Block, breiter -->
+  <section class="container-wide py-16">
+    <p class="eyebrow mb-3">Mein Ansatz</p>
+    <h2 class="mb-8 max-w-5xl">Wie ich arbeite</h2>
+    <div class="max-w-5xl space-y-5">
+      <p class="text-lg leading-relaxed">
+        Ich arbeite lösungsorientiert — wir schauen nicht zurück auf das, was nicht funktioniert hat, sondern bewusst nach vorn: Wie soll es sein, was ist der nächste Schritt?
+      </p>
+      <p class="text-lg leading-relaxed">
+        Dabei betrachte ich dich ganzheitlich. Veränderungen entstehen nicht nur durch Erkenntnisse im Kopf — manchmal ist es der Körper, der uns zeigt, wo wir wirklich stehen. Das beziehe ich aktiv mit ein.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Und immer auf Augenhöhe: Du bist Expertin für dein Thema. Ich bin Expertin für den Prozess. Ich begleite dich dabei, deine eigene Antwort zu finden.
+      </p>
+    </div>
+  </section>
+
+  <!-- BILD: Wald mit Licht, volle Breite -->
+  <div class="w-full">
+    <img
+      src="/bild-2.jpg"
+      alt="Wald mit Licht"
+      class="w-full object-cover"
+      style="height: 480px; object-position: center;"
+    />
+  </div>
+
+  <!-- ANGEBOT: drei dunkelgrüne Karten, Überschrift links, kein Bild -->
+  <section class="container-wide py-20">
+    <p class="eyebrow mb-4">Mein Angebot</p>
+    <h2 class="mb-12">Wie ich dich begleiten kann</h2>
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-2">Coaching-Begleitung</h3>
+        <p class="text-sm text-ink-light/70 mb-4">3–6 Monate</p>
+        <p class="text-ink-light/90 leading-relaxed mb-4">
+          Mein Kernangebot — für Menschen, die einen größeren Veränderungsprozess nicht alleine gehen wollen. Wir arbeiten regelmäßig zusammen, nah an dir und an dem, was sich gerade entwickelt.
+        </p>
+        <p class="text-ink-light/90 leading-relaxed">
+          Du hast jemanden an deiner Seite, der deinen Weg kennt, der mit dir durch Unsicherheit geht und der dich immer wieder an das erinnert, was schon in dir ist.
+        </p>
+      </div>
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-4">Fokus-Session</h3>
+        <p class="text-ink-light/90 leading-relaxed mb-4">
+          Du hast ein konkretes Anliegen — eine Entscheidung, die ansteht, eine Situation, die Klarheit braucht. In einer Session arbeiten wir gezielt daran. Klar, fokussiert, wirksam.
+        </p>
+        <p class="text-ink-light/90 leading-relaxed">
+          Danach entscheidest du, ob du weitermachen möchtest.
+        </p>
+      </div>
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-4">Team-Coaching</h3>
+        <p class="text-ink-light/90 leading-relaxed">
+          Nicht nur Einzelpersonen, sondern ganze Teams stehen vor Veränderungen. Ich begleite Teams durch Veränderungsprozesse, sodass nicht nur Einzelne, sondern die Gruppe als Ganzes einen nächsten Schritt gehen kann.
+        </p>
+      </div>
+    </div>
+    <div class="bg-bg-card rounded-lg p-8 text-center">
+      <p class="text-lg text-ink-soft m-0">
+        Du möchtest ein anderes Format oder bist unsicher, was zu dir passt?
+        <a href="/kontakt/" class="text-primary underline underline-offset-4">Schreib mir gerne</a> — gemeinsam finden wir deine individuelle Lösung.
+      </p>
+    </div>
+  </section>
+
+  <!-- Brücke + Kontaktformular -->
+  <section class="container-text py-20">
+    <p class="text-lg leading-relaxed mb-10 text-center">
+      Ich freue mich über deine Kontaktaufnahme. Hast du Lust auf ein Coaching und möchtest mich kennenlernen? Dann melde dich gerne.
+    </p>
+    <ContactForm />
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  imagePosition?: 'left' | 'right';
+  imageSrc?: string;
+  imageAlt?: string;
+  imagePlaceholder?: string;
+  bgColor?: string;
+}
+
+const {
+  imagePosition = 'right',
+  imageSrc,
+  imageAlt = '',
+  imagePlaceholder = 'Bild folgt',
+  bgColor = 'bg-bg-cream',
+} = Astro.props;
+---
+
+<div class={`w-full grid md:grid-cols-2 min-h-[540px] ${bgColor}`}>
+
+  <!-- Text-Seite — Reihenfolge je nach imagePosition -->
+  <div class={`flex items-center px-10 py-16 md:px-16 md:py-20 ${imagePosition === 'left' ? 'md:order-2' : 'md:order-1'}`}>
+    <div class="max-w-lg w-full">
+      <slot />
+    </div>
+  </div>
+
+  <!-- Bild-Seite — volle Höhe, kein Rand -->
+  <div class={`relative min-h-[360px] overflow-hidden ${imagePosition === 'left' ? 'md:order-1' : 'md:order-2'}`}>
+    {imageSrc ? (
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        style={imageSrc?.includes('portrait') ? 'object-position: center top' : 'object-position: center center'}
+      />
+    ) : (
+      <div class="absolute inset-0 bg-bg-card flex items-center justify-center">
+        <span class="text-ink-soft text-sm italic">{imagePlaceholder}</span>
+      </div>
+    )}
+  </div>
+
+</div>

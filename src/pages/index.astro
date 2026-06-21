@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import StrengthCard from '../components/StrengthCard.astro';
+import CTABlock from '../components/CTABlock.astro';
+---
+
+<BaseLayout
+  title="Coaching München — Kristin Lüdecke"
+  description="Coaching in München und online. Ich begleite dich bei beruflichen und privaten Veränderungen, lösungsorientiert, ganzheitlich, auf Augenhöhe."
+>
+
+  <!-- HERO: Text links, Portrait rechts -->
+  <SplitSection imagePosition="right" imageSrc="/portrait.jpg" imageAlt="Kristin Lüdecke" bgColor="bg-bg">
+    <p class="eyebrow mb-6">Coaching · Online & München</p>
+    <h1 class="mb-6">
+      Fortschritt passiert in jedem Fall.<br />
+      Es wäre schade, ihn nicht zu <em>erkennen</em>.
+    </h1>
+    <p class="text-lg text-ink-soft mb-10">
+      Ich begleite dich, sodass <strong>Klarheit, Zuversicht und Leichtigkeit</strong> entstehen darf.
+    </p>
+    <a href="/kontakt/" class="btn-primary">Kennenlerngespräch vereinbaren</a>
+  </SplitSection>
+
+  <!-- FRAGEN: drei weiße Karten mit Eyebrow + Headline -->
+  <section class="container-wide py-16">
+    <p class="eyebrow mb-2">Deine Situation</p>
+    <h2 class="mb-8">Wo du gerade stehst</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du spürst, dass sich etwas verändern soll — weißt aber noch nicht genau, was?</p>
+      </div>
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du weißt, dass du etwas möchtest — aber wohin die Reise gehen soll, ist noch unklar?</p>
+      </div>
+      <div class="card">
+        <p class="text-lg text-ink leading-relaxed">Du bist bereit für einen nächsten Schritt — und suchst den Mut oder die Klarheit, ihn zu gehen?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAS ICH UNTER COACHING VERSTEHE: kein Bild, kompakter, breiter -->
+  <section class="container-wide py-10">
+    <p class="eyebrow mb-3">Mein Coaching-Ansatz</p>
+    <h2 class="mb-6 max-w-4xl">Was ich unter Coaching verstehe</h2>
+    <div class="max-w-4xl">
+      <p class="text-lg leading-relaxed">
+        Coaching ist für mich ein Weg zur <strong>bewussten Gestaltung des eigenen Lebens</strong>. Als Coach schaffe ich den Rahmen, in dem wir vertrauensvoll dein Thema betrachten können. Dabei begleite ich dich in der Entwicklung <strong>deiner individuellen Antworten</strong>, sodass du kraftvoll deinen nächsten Schritt gestalten kannst.
+      </p>
+    </div>
+  </section>
+
+  <!-- DREI KARTEN: ohne Überschrift, näher am Ansatz-Text -->
+  <section class="container-wide pt-4 pb-16">
+    <div class="grid md:grid-cols-3 gap-6">
+      <StrengthCard
+        title="Klarheit gewinnen"
+        description="Du betrachtest dein Anliegen aus verschiedenen Perspektiven und gewinnst Klarheit über dich und deine Situation."
+      />
+      <StrengthCard
+        title="Stärken erkennen"
+        description="Du wirst dir bewusst, was du an Ressourcen bereits mitbringst und was dich wirklich antreibt."
+      />
+      <StrengthCard
+        title="Dein Zielbild gestalten"
+        description="Du entwickelst ein Bild davon, wie es sein soll — und gewinnst die Zuversicht, deinen Weg dorthin zu gehen."
+      />
+    </div>
+  </section>
+
+  <!-- BILD: Wald mit Licht, volle Breite, NACH den Karten -->
+  <div class="w-full">
+    <img
+      src="/bild-2.jpg"
+      alt="Wald mit Licht"
+      class="w-full object-cover"
+      style="height: 480px; object-position: center;"
+    />
+  </div>
+
+  <!-- ANGEBOT: drei dunkelgrüne Karten, Überschrift links, kein Bild -->
+  <section class="container-wide py-20">
+    <p class="eyebrow mb-4">Mein Angebot</p>
+    <h2 class="mb-12">Wie ich dich begleiten kann</h2>
+    <div class="grid md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-2">Coaching-Begleitung</h3>
+        <p class="text-sm text-ink-light/70 mb-4">3–6 Monate</p>
+        <p class="text-ink-light/90 leading-relaxed">Für Menschen, die einen größeren Veränderungsprozess nicht alleine gehen wollen. Wir arbeiten regelmäßig zusammen — nah, kontinuierlich, mit dem Fokus auf dem, was sich gerade entwickelt.</p>
+      </div>
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-4">Fokus-Session</h3>
+        <p class="text-ink-light/90 leading-relaxed">Du hast ein konkretes Anliegen — eine Entscheidung, eine Situation, die Klarheit braucht. In einer Session arbeiten wir gezielt daran.</p>
+      </div>
+      <div class="bg-primary rounded-lg p-8">
+        <h3 class="text-ink-light mb-4">Team-Coaching</h3>
+        <p class="text-ink-light/90 leading-relaxed">Ich begleite Teams durch Veränderungsprozesse — wenn eine Gruppe gemeinsam einen nächsten Schritt gehen möchte.</p>
+      </div>
+    </div>
+    <a href="/mein-coaching/" class="btn-secondary">Mehr zu meinem Angebot →</a>
+  </section>
+
+  <!-- ÜBER MICH MINI-BIO: SplitSection mit Portrait rechts, gleicher Hintergrund -->
+  <SplitSection imagePosition="right" imageSrc="/portrait.jpg" imageAlt="Kristin Lüdecke" bgColor="bg-bg">
+    <p class="eyebrow mb-4">Über mich</p>
+    <h2 class="mb-6">Ich bin Kristin.</h2>
+    <p class="text-lg leading-relaxed mb-5">
+      Ich bin ausgebildete lösungsorientierte Coach und begleite Menschen in beruflichen und privaten Veränderungen. Mit echter Präsenz, strukturiertem Denken und dem Glauben daran, dass du bereits <strong>alles in dir trägst</strong>, was du brauchst.
+    </p>
+    <p class="text-lg leading-relaxed mb-8">
+      Ich kenne beide Seiten: die Welt der Unternehmen, der Entscheidungen unter Druck — und die Erfahrung, selbst mehrfach neu anzufangen und den eigenen Weg bewusst zu gestalten.
+    </p>
+    <a href="/ueber-mich/" class="btn-secondary">Mehr über mich →</a>
+  </SplitSection>
+
+  <!-- CTA -->
+  <CTABlock
+    headline="Ich freue mich, dich kennenzulernen."
+    text="Schreib mir, und wir finden gemeinsam heraus, ob und wie ich dich begleiten kann."
+    buttonLabel="Kennenlerngespräch vereinbaren"
+    buttonHref="/kontakt/"
+  />
+
+</BaseLayout>

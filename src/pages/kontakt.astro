@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'Kontakt — Kennenlerngespräch mit Kristin Lüdecke';
+const description = 'Schreib mir gerne. Coaching in München und online, Deutsch oder Englisch. Ich melde mich innerhalb von zwei Werktagen.';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- HERO: Text links, Portrait rechts -->
+  <SplitSection imagePosition="right" imageSrc="/portrait.jpg" imageAlt="Kristin Lüdecke" bgColor="bg-bg">
+    <p class="eyebrow mb-4">Kontakt</p>
+    <h1 class="mb-4">Ich freue mich, dich kennenzulernen.</h1>
+    <p class="text-lg text-ink-soft">
+      Der erste Schritt ist ein kurzes Kennenlerngespräch — 15 bis 30 Minuten, in denen wir uns kennenlernen, schauen, was dich aktuell beschäftigt — und ob wir <strong>zueinander passen</strong>.
+    </p>
+  </SplitSection>
+
+  <!-- KONTAKTFORMULAR: volle Breite, zentriert -->
+  <section class="container-text pt-20 pb-8">
+    <ContactForm />
+
+    <div class="mt-10 text-center">
+      <a
+        href="https://www.linkedin.com/in/kristinluedecke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary inline-flex"
+      >
+        LinkedIn
+      </a>
+    </div>
+
+    <!-- Calendly-Platzhalter (Account folgt) -->
+    <div class="mt-8 pt-8 border-t border-primary/10 text-center">
+      <p class="text-ink-soft mb-4">Oder direkt einen Termin buchen:</p>
+      <!-- TODO: Calendly-Link einfügen sobald Account eingerichtet -->
+      <button
+        disabled
+        class="inline-flex items-center justify-center px-6 py-3 bg-bg-card text-ink-soft rounded-md cursor-not-allowed opacity-60"
+      >
+        Termin direkt buchen (coming soon)
+      </button>
+    </div>
+  </section>
+
+  <!-- WAS NACH DEINER ANFRAGE PASSIERT — zentriert, direkt unterm Formular -->
+  <section class="container-prose py-10 text-center">
+    <h2 class="mb-4">Was nach deiner Anfrage passiert</h2>
+    <p class="text-lg leading-relaxed">
+      Ich melde mich innerhalb von zwei Werktagen bei dir. Wir vereinbaren einen Termin für ein Kennenlerngespräch, online oder vor Ort in München, ganz wie es für dich passt.
+    </p>
+  </section>
+
+</BaseLayout>

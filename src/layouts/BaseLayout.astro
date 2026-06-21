@@ -1,0 +1,102 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image = '/og-image.jpg', noindex = false } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org: Person + ProfessionalService -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://kristinluedecke.de/#person",
+          "name": "Kristin Lüdecke",
+          "jobTitle": "Lösungsorientierte Coach",
+          "url": "https://kristinluedecke.de",
+          "image": "https://kristinluedecke.de/portrait.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "München",
+            "addressCountry": "DE"
+          },
+          "knowsLanguage": ["de", "en"],
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "SolutionSurfers"
+          },
+          "description": "Lösungsorientierte Coach in München. Ich begleite Menschen bei beruflichen und privaten Veränderungen — empathisch, vertrauensvoll, auf Augenhöhe."
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://kristinluedecke.de/#service",
+          "name": "Coaching Kristin Lüdecke",
+          "image": "https://kristinluedecke.de/portrait.jpg",
+          "url": "https://kristinluedecke.de",
+          "telephone": "+49-159-01008445",
+          "email": "luedeckekristin@gmail.com",
+          "priceRange": "€€",
+          "areaServed": {
+            "@type": "City",
+            "name": "München"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "München",
+            "addressCountry": "DE"
+          },
+          "founder": { "@id": "https://kristinluedecke.de/#person" },
+          "availableLanguage": ["Deutsch", "Englisch"],
+          "serviceType": "Lösungsorientiertes Coaching"
+        }
+      ]
+    })} />
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

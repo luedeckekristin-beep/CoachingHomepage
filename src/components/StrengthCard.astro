@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="card">
+  <h3 class="text-primary mb-3">{title}</h3>
+  <p class="text-ink-soft m-0">{description}</p>
+</div>
