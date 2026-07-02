@@ -2,8 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://luedeckekristin-beep.github.io',
-  base: '/CoachingHomepage',
+  site: 'https://kristinluedecke.de',
   outDir: './docs',
   integrations: [tailwind()],
   build: {
