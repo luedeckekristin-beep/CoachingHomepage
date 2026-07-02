@@ -8,21 +8,13 @@ const {
   headline,
   intro,
 } = Astro.props;
-
-// TODO: Formular-Backend einrichten (z. B. Netlify Forms oder Formspree)
-// Aktuell: einfacher mailto:-Fallback an luedeckekristin@gmail.com
 ---
 
 <div class="bg-bg-card rounded-lg p-8 md:p-12">
   {headline && <h3 class="mb-3 text-primary">{headline}</h3>}
   {intro && <p class="text-ink-soft mb-8 max-w-prose">{intro}</p>}
 
-  <form
-    action="mailto:luedeckekristin@gmail.com"
-    method="post"
-    enctype="text/plain"
-    class="space-y-5"
-  >
+  <form id="contact-form" class="space-y-5">
     <div class="grid md:grid-cols-2 gap-5">
       <div>
         <label for="cf-name" class="block text-sm font-medium mb-2 text-ink">
@@ -31,7 +23,7 @@ const {
         <input
           type="text"
           id="cf-name"
-          name="Name"
+          name="name"
           class="w-full px-4 py-3 rounded-md border border-primary/20 bg-bg-cream text-ink focus:outline-none focus:border-primary"
         />
       </div>
@@ -43,7 +35,7 @@ const {
         <input
           type="tel"
           id="cf-phone"
-          name="Handynummer"
+          name="phone"
           class="w-full px-4 py-3 rounded-md border border-primary/20 bg-bg-cream text-ink focus:outline-none focus:border-primary"
         />
       </div>
@@ -56,7 +48,7 @@ const {
       <input
         type="email"
         id="cf-email"
-        name="E-Mail"
+        name="email"
         required
         class="w-full px-4 py-3 rounded-md border border-primary/20 bg-bg-cream text-ink focus:outline-none focus:border-primary"
       />
@@ -68,7 +60,7 @@ const {
       </label>
       <textarea
         id="cf-message"
-        name="Nachricht"
+        name="message"
         rows="6"
         required
         class="w-full px-4 py-3 rounded-md border border-primary/20 bg-bg-cream text-ink focus:outline-none focus:border-primary resize-y"
@@ -82,4 +74,38 @@ const {
       </p>
     </div>
   </form>
+
+  <!-- Alternativer Kontaktweg -->
+  <p class="text-sm text-ink-soft mt-8 pt-6 border-t border-primary/10 m-0">
+    Alternativ kannst du mir auch direkt eine E-Mail schreiben an
+    {' '}
+    <a href="mailto:luedeckekristin@gmail.com" class="text-primary underline underline-offset-2">luedeckekristin@gmail.com</a>.
+  </p>
 </div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = (form.querySelector<HTMLInputElement>('#cf-name')?.value || '').trim();
+    const phone = (form.querySelector<HTMLInputElement>('#cf-phone')?.value || '').trim();
+    const email = (form.querySelector<HTMLInputElement>('#cf-email')?.value || '').trim();
+    const message = (form.querySelector<HTMLTextAreaElement>('#cf-message')?.value || '').trim();
+
+    const subject = 'Kontaktanfrage über die Website';
+    const bodyLines = [
+      name && `Name: ${name}`,
+      phone && `Handynummer: ${phone}`,
+      email && `E-Mail: ${email}`,
+      '',
+      'Nachricht:',
+      message,
+    ].filter((line) => line !== undefined);
+
+    const body = bodyLines.join('\n');
+    const mailto = `mailto:luedeckekristin@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+  });
+</script>
