@@ -1,0 +1,1 @@
+import"./hoisted.Bi_jJWJg.js";document.querySelectorAll(".faq-toggle").forEach(e=>{e.addEventListener("click",()=>{const t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",String(!t));const r=e.nextElementSibling,a=e.querySelector(".faq-icon");r&&r.classList.toggle("hidden"),a&&(a.style.transform=t?"rotate(0deg)":"rotate(45deg)")})});

@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://kristinluedecke.de',
-  integrations: [tailwind(), sitemap()],
+  site: 'https://luedeckekristin-beep.github.io',
+  base: '/CoachingHomepage',
+  outDir: './docs',
+  integrations: [tailwind()],
   build: {
     format: 'directory',
   },

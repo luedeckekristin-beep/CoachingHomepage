@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SplitSection from '../components/SplitSection.astro';
 import ContactForm from '../components/ContactForm.astro';
+import { link } from '../utils/link';
 
 const title = 'Mein Coaching — Lösungsorientiert, in München & Online';
 const description = 'Wie ich arbeite: Lösungsorientiertes Coaching für berufliche und private Veränderungen. 1:1, online oder in München. Lösungsorientiert, ganzheitlich, auf Augenhöhe.';
@@ -53,7 +54,7 @@ const description = 'Wie ich arbeite: Lösungsorientiertes Coaching für berufli
   <!-- BILD: Wald mit Licht, volle Breite -->
   <div class="w-full">
     <img
-      src="/bild-2.jpg"
+      src={link('/bild-2.jpg')}
       alt="Wald mit Licht"
       class="w-full object-cover"
       style="height: 480px; object-position: center;"
@@ -94,7 +95,7 @@ const description = 'Wie ich arbeite: Lösungsorientiertes Coaching für berufli
     <div class="bg-bg-card rounded-lg p-8 text-center">
       <p class="text-lg text-ink-soft m-0">
         Du möchtest ein anderes Format oder bist unsicher, was zu dir passt?
-        <a href="/kontakt/" class="text-primary underline underline-offset-4">Schreib mir gerne</a> — gemeinsam finden wir deine individuelle Lösung.
+        <a href={link('/kontakt/')} class="text-primary underline underline-offset-4">Schreib mir gerne</a> — gemeinsam finden wir deine individuelle Lösung.
       </p>
     </div>
   </section>

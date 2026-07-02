@@ -1,18 +1,21 @@
 ---
+import { link } from '../utils/link';
+
 const navItems = [
-  { href: '/mein-coaching/', label: 'Mein Coaching' },
-  { href: '/ueber-mich/', label: 'Über mich' },
-  { href: '/kontakt/', label: 'Kontakt' },
-  { href: '/faq/', label: 'FAQ' },
+  { path: '/mein-coaching/', label: 'Mein Coaching' },
+  { path: '/ueber-mich/', label: 'Über mich' },
+  { path: '/kontakt/', label: 'Kontakt' },
+  { path: '/faq/', label: 'FAQ' },
 ];
 
 const currentPath = Astro.url.pathname;
+const isActive = (path: string) => currentPath === link(path) || currentPath === link(path).replace(/\/$/, '');
 ---
 
 <header class="w-full border-b border-primary/10 bg-bg/80 backdrop-blur-sm sticky top-0 z-50">
   <div class="w-full flex items-center justify-between py-4 px-6 md:px-10">
     <!-- Name ganz links -->
-    <a href="/" class="font-sans font-medium text-lg text-primary no-underline hover:text-primary-light">
+    <a href={link('/')} class="font-sans font-medium text-lg text-primary no-underline hover:text-primary-light">
       Kristin Lüdecke
     </a>
 
@@ -22,9 +25,9 @@ const currentPath = Astro.url.pathname;
         {navItems.map((item) => (
           <li>
             <a
-              href={item.href}
+              href={link(item.path)}
               class={`text-sm no-underline transition-colors ${
-                currentPath === item.href
+                isActive(item.path)
                   ? 'text-primary font-medium'
                   : 'text-ink hover:text-primary'
               }`}
@@ -37,7 +40,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- Sticky CTA-Button -->
       <a
-        href="/kontakt/"
+        href={link('/kontakt/')}
         class="inline-flex items-center justify-center px-4 py-2 bg-primary text-ink-light text-sm rounded-md no-underline hover:bg-primary-dark transition-colors"
       >
         Kennenlerngespräch vereinbaren
@@ -64,9 +67,9 @@ const currentPath = Astro.url.pathname;
       {navItems.map((item) => (
         <li>
           <a
-            href={item.href}
+            href={link(item.path)}
             class={`block py-2 no-underline ${
-              currentPath === item.href ? 'text-primary font-medium' : 'text-ink'
+              isActive(item.path) ? 'text-primary font-medium' : 'text-ink'
             }`}
           >
             {item.label}

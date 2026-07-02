@@ -1,4 +1,6 @@
 ---
+import { link } from '../utils/link';
+
 interface Props {
   imagePosition?: 'left' | 'right';
   imageSrc?: string;
@@ -14,6 +16,8 @@ const {
   imagePlaceholder = 'Bild folgt',
   bgColor = 'bg-bg-cream',
 } = Astro.props;
+
+const resolvedSrc = imageSrc && !imageSrc.startsWith('http') ? link(imageSrc) : imageSrc;
 ---
 
 <div class={`w-full grid md:grid-cols-2 min-h-[540px] ${bgColor}`}>
@@ -27,9 +31,9 @@ const {
 
   <!-- Bild-Seite — volle Höhe, kein Rand -->
   <div class={`relative min-h-[360px] overflow-hidden ${imagePosition === 'left' ? 'md:order-1' : 'md:order-2'}`}>
-    {imageSrc ? (
+    {resolvedSrc ? (
       <img
-        src={imageSrc}
+        src={resolvedSrc}
         alt={imageAlt}
         class="absolute inset-0 w-full h-full object-cover object-center"
         style={imageSrc?.includes('portrait') ? 'object-position: center top' : 'object-position: center center'}

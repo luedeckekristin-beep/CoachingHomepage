@@ -1,4 +1,6 @@
 ---
+import { link } from '../utils/link';
+
 interface Props {
   headline: string;
   text?: string;
@@ -12,6 +14,9 @@ const {
   buttonLabel = 'Jetzt Kontakt aufnehmen',
   buttonHref = '/kontakt/',
 } = Astro.props;
+
+// Internen Pfade base-prefixen, externe URLs unverändert lassen
+const href = buttonHref.startsWith('http') ? buttonHref : link(buttonHref);
 ---
 
 <section class="w-full bg-primary text-ink-light py-16 px-8 md:px-16 my-0">
@@ -19,7 +24,7 @@ const {
     <h2 class="text-ink-light mb-4">{headline}</h2>
     {text && <p class="text-ink-light/90 mb-8 text-lg">{text}</p>}
     <a
-      href={buttonHref}
+      href={href}
       class="inline-flex items-center justify-center px-7 py-3 bg-bg text-primary no-underline rounded-md font-medium hover:bg-bg-card transition-colors"
     >
       {buttonLabel}

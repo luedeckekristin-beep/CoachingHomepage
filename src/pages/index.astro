@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SplitSection from '../components/SplitSection.astro';
 import StrengthCard from '../components/StrengthCard.astro';
 import CTABlock from '../components/CTABlock.astro';
+import { link } from '../utils/link';
 ---
 
 <BaseLayout
@@ -20,7 +21,7 @@ import CTABlock from '../components/CTABlock.astro';
     <p class="text-lg text-ink-soft mb-10">
       Ich begleite dich, sodass <strong>Klarheit, Zuversicht und Leichtigkeit</strong> entstehen darf.
     </p>
-    <a href="/kontakt/" class="btn-primary">Kennenlerngespräch vereinbaren</a>
+    <a href={link('/kontakt/')} class="btn-primary">Kennenlerngespräch vereinbaren</a>
   </SplitSection>
 
   <!-- FRAGEN: drei weiße Karten mit Eyebrow + Headline -->
@@ -72,7 +73,7 @@ import CTABlock from '../components/CTABlock.astro';
   <!-- BILD: Wald mit Licht, volle Breite, NACH den Karten -->
   <div class="w-full">
     <img
-      src="/bild-2.jpg"
+      src={link('/bild-2.jpg')}
       alt="Wald mit Licht"
       class="w-full object-cover"
       style="height: 480px; object-position: center;"
@@ -98,7 +99,7 @@ import CTABlock from '../components/CTABlock.astro';
         <p class="text-ink-light/90 leading-relaxed">Ich begleite Teams durch Veränderungsprozesse — wenn eine Gruppe gemeinsam einen nächsten Schritt gehen möchte.</p>
       </div>
     </div>
-    <a href="/mein-coaching/" class="btn-secondary">Mehr zu meinem Angebot →</a>
+    <a href={link('/mein-coaching/')} class="btn-secondary">Mehr zu meinem Angebot →</a>
   </section>
 
   <!-- ÜBER MICH MINI-BIO: SplitSection mit Portrait rechts, gleicher Hintergrund -->
@@ -111,7 +112,7 @@ import CTABlock from '../components/CTABlock.astro';
     <p class="text-lg leading-relaxed mb-8">
       Ich kenne beide Seiten: die Welt der Unternehmen, der Entscheidungen unter Druck — und die Erfahrung, selbst mehrfach neu anzufangen und den eigenen Weg bewusst zu gestalten.
     </p>
-    <a href="/ueber-mich/" class="btn-secondary">Mehr über mich →</a>
+    <a href={link('/ueber-mich/')} class="btn-secondary">Mehr über mich →</a>
   </SplitSection>
 
   <!-- CTA -->
