@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
 import CTABlock from '../components/CTABlock.astro';
 
 const title = 'FAQ — Häufige Fragen zum Coaching | Kristin Lüdecke';
@@ -39,13 +40,11 @@ const faqs = [
 
 <BaseLayout title={title} description={description}>
 
-  <!-- HERO -->
-  <section class="container-wide pt-16 md:pt-24 pb-12">
-    <div class="max-w-3xl">
-      <p class="eyebrow mb-6">FAQ</p>
-      <h1 class="mb-6">Häufige Fragen</h1>
-    </div>
-  </section>
+  <!-- HERO: Text links, Bild rechts -->
+  <SplitSection imagePosition="right" imageSrc="/bild_faq.jpg" imageAlt="Kristin Lüdecke" bgColor="bg-bg">
+    <p class="eyebrow mb-6">FAQ</p>
+    <h1 class="mb-6">Häufige Fragen</h1>
+  </SplitSection>
 
   <!-- FAQ-ACCORDION -->
   <section class="container-prose py-12">
@@ -70,7 +69,7 @@ const faqs = [
 
   <!-- CTA-Block am Ende -->
   <CTABlock
-    headline="Noch Fragen?"
+    headline="Du hast weitere Fragen?"
     text="Ich beantworte sie gerne persönlich."
     buttonLabel="Schreib mir"
     buttonHref="/kontakt/"

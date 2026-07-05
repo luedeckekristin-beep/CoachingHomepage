@@ -7,6 +7,7 @@ interface Props {
   imageAlt?: string;
   imagePlaceholder?: string;
   bgColor?: string;
+  tall?: boolean;
 }
 
 const {
@@ -15,12 +16,20 @@ const {
   imageAlt = '',
   imagePlaceholder = 'Bild folgt',
   bgColor = 'bg-bg-cream',
+  tall = false,
 } = Astro.props;
 
+const minHeightClass = tall ? 'min-h-[700px]' : 'min-h-[540px]';
+
 const resolvedSrc = imageSrc && !imageSrc.startsWith('http') ? link(imageSrc) : imageSrc;
+
+// Bilder mit Gesicht oben (Portraits) → object-position: center top
+// damit der Kopf beim Zuschneiden nicht abgeschnitten wird.
+const isPortraitLike = imageSrc?.match(/(portrait|startseite_übermich|kontakt|übermich|faq)/i);
+const objectPosition = isPortraitLike ? 'center top' : 'center center';
 ---
 
-<div class={`w-full grid md:grid-cols-2 min-h-[540px] ${bgColor}`}>
+<div class={`w-full grid md:grid-cols-2 ${minHeightClass} ${bgColor}`}>
 
   <!-- Text-Seite — Reihenfolge je nach imagePosition -->
   <div class={`flex items-center px-10 py-16 md:px-16 md:py-20 ${imagePosition === 'left' ? 'md:order-2' : 'md:order-1'}`}>
@@ -35,8 +44,8 @@ const resolvedSrc = imageSrc && !imageSrc.startsWith('http') ? link(imageSrc) : 
       <img
         src={resolvedSrc}
         alt={imageAlt}
-        class="absolute inset-0 w-full h-full object-cover object-center"
-        style={imageSrc?.includes('portrait') ? 'object-position: center top' : 'object-position: center center'}
+        class="absolute inset-0 w-full h-full object-cover"
+        style={`object-position: ${objectPosition}`}
       />
     ) : (
       <div class="absolute inset-0 bg-bg-card flex items-center justify-center">
